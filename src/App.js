@@ -20,12 +20,11 @@ function App() {
       <NavigationBar />
       <Switch>
         <Route path="/" exact component={PizzasPage} />
+        <Route path="/pizzas" exact component={PizzasPage} />
         <Route path="/cart" component={CartPage} />
         <Route path="/contact" component={ContactUsPage} />
         <Route component={PageNotFound} />
       </Switch>
-
-      <h1>Test</h1>
     </div>
   );
 }
