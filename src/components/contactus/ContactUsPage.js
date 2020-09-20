@@ -30,6 +30,5 @@ const ContactUsPage = () => (
     </Jumbotron>
   </div>
 );
-}
 
 export default ContactUsPage;
