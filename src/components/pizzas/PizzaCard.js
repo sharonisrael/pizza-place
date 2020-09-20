@@ -4,25 +4,25 @@ import Button from "react-bootstrap/Button";
 
 const PizzaCard = (props) => {
   return (
-    <Card key={props.id} style={{ margin: "10px" }}>
+    <Card key={props.pizza.id} style={{ margin: "10px" }}>
       <Card.Img
         variant="top"
-        src={props.image}
+        src={props.pizza.image}
         style={{ height: "250px", width: "300px", padding: "10px" }}
       />
       <Card.Body>
-        <Card.Title>{props.name}</Card.Title>
-        <Card.Text>{props.description}</Card.Text>
+        <Card.Title>{props.pizza.name}</Card.Title>
+        <Card.Text>{props.pizza.description}</Card.Text>
         <Button
           variant="primary"
-          onClick={() => props.addPizza(props.id)}
+          onClick={() => props.addPizza(props.pizza)}
           style={{ margin: "10px" }}
         >
           Add
         </Button>
         <Button
           variant="primary"
-          onClick={() => props.removePizza(props.id)}
+          onClick={() => props.removePizza(props.pizza)}
           style={{ margin: "10px" }}
         >
           Remove
@@ -31,5 +31,8 @@ const PizzaCard = (props) => {
     </Card>
   );
 };
+
+// import Badge from "react-bootstrap/Badge";
+// <Badge variant="secondary">5</Badge>
 
 export default PizzaCard;

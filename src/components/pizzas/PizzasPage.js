@@ -31,10 +31,7 @@ const PizzasPage = () => {
           return (
             <div key={pizza.id}>
               <PizzaCard
-                id={pizza.id}
-                pizza={pizza.name}
-                image={pizza.image}
-                description={pizza.description}
+                pizza={pizza}
                 addPizza={addPizza}
                 removePizza={removePizza}
               />
@@ -50,27 +47,49 @@ const PizzasPage = () => {
     </div>
   );
 
-  function addPizza(pizzaId) {
-    let newPizzas = [...pizzas, pizzaId];
-    setPizzas(newPizzas);
-    console.log("Pizzas: " + newPizzas);
+  function consoleLogPizzas(logPizzas) {
+    console.log("Pizzas: " + logPizzas.length);
+    logPizzas.map((pizza) => {
+      console.log(
+        "Pizza: " +
+          pizza.id +
+          " " +
+          pizza.name +
+          " " +
+          pizza.description +
+          " " +
+          pizza.price
+      );
+      return 0;
+    });
   }
 
-  function removePizza(pizzaId) {
+  function addPizza(pizza) {
+    let newPizzas = [...pizzas, pizza];
+    setPizzas(newPizzas);
+    consoleLogPizzas(newPizzas);
+  }
+
+  function removePizza(pizza) {
     let newPizzas = [...pizzas];
     // return found idex or -1 if not found
-    var pizzaIndex = newPizzas.indexOf(pizzaId);
+    // Array.prototype.indexOf() expects a value as first parameter. This makes it a good choice to find the index in arrays of primitive types (like string, number, or boolean).
+    // Array.prototype.findIndex() expects a callback as first parameter. Use this if you need the index in arrays with non-primitive types (e.g. objects) or your find condition is more complex than just a value.
+    var pizzaIndex = newPizzas.findIndex(
+      (currentPizza) => currentPizza.id === pizza.id
+    );
+    console.log("pizzaIndex " + pizzaIndex);
     // remove starting from pizzaIndex 1 item
     if (pizzaIndex >= 0) {
       newPizzas.splice(pizzaIndex, 1);
+      setPizzas(newPizzas);
+      consoleLogPizzas(newPizzas);
     }
-    setPizzas(newPizzas);
-    console.log("Pizzas: " + newPizzas);
   }
 
   function formatTotal() {
     const result = pizzas.reduce(
-      (total, currentValue) => (total = total + currentValue),
+      (total, currentPizza) => (total = total + currentPizza.price),
       0
     );
     return result;
