@@ -18,13 +18,13 @@ class PizzasPage extends React.Component {
     return (
       <div>
         <h1>Pizzas</h1>
-        <br />
-        <div>
-          <Card>
+        <hr />
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <Card style={{ margin: "10px" }}>
             <Card.Img
               variant="top"
               src="/images/pizza_napolitana.jpg"
-              style={{ width: "400px" }}
+              style={{ height: "250px", width: "300px", padding: "10px" }}
             />
             <Card.Body>
               <Card.Title>Napolitana</Card.Title>
@@ -38,13 +38,11 @@ class PizzasPage extends React.Component {
               </Button>
             </Card.Body>
           </Card>
-        </div>
-        <div>
-          <Card>
+          <Card style={{ margin: "10px" }}>
             <Card.Img
               variant="top"
               src="/images/pizza_vegetables.jpg"
-              style={{ width: "400px" }}
+              style={{ height: "250px", width: "300px", padding: "10px" }}
             />
             <Card.Body>
               <Card.Title>Vegetables</Card.Title>
@@ -59,7 +57,8 @@ class PizzasPage extends React.Component {
             </Card.Body>
           </Card>
         </div>
-        <Button href="/cart" variant="success">
+        <br />
+        <Button href="/cart" variant="success" style={{ margin: "10px" }}>
           Order pizza
         </Button>
       </div>
