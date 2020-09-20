@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const PizzaCard = (props) => {
+function PizzaCard(props) {
   return (
     <Card key={props.pizza.id} style={{ margin: "10px" }}>
       <Card.Img
@@ -30,7 +30,7 @@ const PizzaCard = (props) => {
       </Card.Body>
     </Card>
   );
-};
+}
 
 // import Badge from "react-bootstrap/Badge";
 // <Badge variant="secondary">5</Badge>

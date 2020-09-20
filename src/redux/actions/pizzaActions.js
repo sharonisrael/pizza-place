@@ -12,3 +12,8 @@ export function removePizza(pizza) {
   //debugger;
   return { type: actionTypes.REMOVE_PIZZA, pizza: pizza };
 }
+
+export function resetPizzas() {
+  //debugger;
+  return { type: actionTypes.RESET_PIZZAS };
+}

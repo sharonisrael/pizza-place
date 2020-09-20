@@ -15,7 +15,7 @@ const ContactUsPage = () => (
       <img
         src="/images/pizza-place.jpg"
         alt="place"
-        rounded
+        rounded="true"
         style={{ height: "250px" }}
       />
       <p>
