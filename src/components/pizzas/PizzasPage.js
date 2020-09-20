@@ -1,69 +1,80 @@
-import React from "react";
-import Card from "react-bootstrap/Card";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import PizzaCard from "./PizzaCard";
 
-class PizzasPage extends React.Component {
-  state = {
-    pizzas: [],
-  };
+const PizzasPage = () => {
+  const [pizzas, setPizzas] = useState([]);
 
-  handleOrder = (event) => {
-    let newPizza = event.target.value;
-    let newPizzas = [...this.state.pizzas, newPizza];
-    this.setState({ pizzas: newPizzas });
-    console.log("Pizzas: " + newPizzas);
-  };
+  const allPizzas = [
+    {
+      id: 100,
+      name: "Napolitana",
+      image: "/images/pizza_napolitana.jpg",
+      description: "Pizza with tomatoe sauce and olives",
+      price: 40,
+    },
+    {
+      id: 101,
+      name: "Vegetables",
+      image: "/images/pizza_vegetables.jpg",
+      description: "Pizza with vegetables and special sauce",
+      price: 50,
+    },
+  ];
 
-  render() {
-    return (
-      <div>
-        <h1>Pizzas</h1>
-        <hr />
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <Card style={{ margin: "10px" }}>
-            <Card.Img
-              variant="top"
-              src="/images/pizza_napolitana.jpg"
-              style={{ height: "250px", width: "300px", padding: "10px" }}
-            />
-            <Card.Body>
-              <Card.Title>Napolitana</Card.Title>
-              <Card.Text>Pizza with tomatoe sauce and olives</Card.Text>
-              <Button
-                variant="primary"
-                value="Napolitana"
-                onClick={this.handleOrder}
-              >
-                Add
-              </Button>
-            </Card.Body>
-          </Card>
-          <Card style={{ margin: "10px" }}>
-            <Card.Img
-              variant="top"
-              src="/images/pizza_vegetables.jpg"
-              style={{ height: "250px", width: "300px", padding: "10px" }}
-            />
-            <Card.Body>
-              <Card.Title>Vegetables</Card.Title>
-              <Card.Text>Pizza with vegetables and special sauce</Card.Text>
-              <Button
-                variant="primary"
-                value="Vegetables"
-                onClick={this.handleOrder}
-              >
-                Add
-              </Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <br />
-        <Button href="/cart" variant="success" style={{ margin: "10px" }}>
-          Order pizza
-        </Button>
+  return (
+    <div>
+      <h1>Pizzas</h1>
+      <hr />
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        {allPizzas.map((pizza) => {
+          return (
+            <div key={pizza.id}>
+              <PizzaCard
+                id={pizza.id}
+                pizza={pizza.name}
+                image={pizza.image}
+                description={pizza.description}
+                addPizza={addPizza}
+                removePizza={removePizza}
+              />
+            </div>
+          );
+        })}
       </div>
-    );
+      <br />
+      <Button href="/cart" variant="success" style={{ margin: "10px" }}>
+        Order pizza
+      </Button>
+      <span>Total {formatTotal()}$</span>
+    </div>
+  );
+
+  function addPizza(pizzaId) {
+    let newPizzas = [...pizzas, pizzaId];
+    setPizzas(newPizzas);
+    console.log("Pizzas: " + newPizzas);
   }
-}
+
+  function removePizza(pizzaId) {
+    let newPizzas = [...pizzas];
+    // return found idex or -1 if not found
+    var pizzaIndex = newPizzas.indexOf(pizzaId);
+    // remove starting from pizzaIndex 1 item
+    if (pizzaIndex >= 0) {
+      newPizzas.splice(pizzaIndex, 1);
+    }
+    setPizzas(newPizzas);
+    console.log("Pizzas: " + newPizzas);
+  }
+
+  function formatTotal() {
+    const result = pizzas.reduce(
+      (total, currentValue) => (total = total + currentValue),
+      0
+    );
+    return result;
+  }
+};
 
 export default PizzasPage;
