@@ -64,6 +64,8 @@ function mapStateToProps(state) {
   //debugger;
   // can be also author_list or authorReducer I didn't understand yet
   return {
+    // pizzas is in the this.props
+    // state.pizzas are actually the store's state
     pizzas: state.pizzas,
   };
 }
