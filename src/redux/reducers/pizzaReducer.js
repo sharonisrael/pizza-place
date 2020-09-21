@@ -9,7 +9,6 @@ function pizzaReducer(state = initialState.pizzas, action) {
     case actionTypes.ADD_PIZZA: {
       // ... spread operator
       let nextId = 1;
-      // console.log("state.length " + state.length);
       if (state.length > 0) {
         nextId =
           Math.max.apply(
@@ -19,7 +18,7 @@ function pizzaReducer(state = initialState.pizzas, action) {
             })
           ) + 1;
       }
-      // console.log("nextId" + nextId);
+
       let newPizza = { ...action.pizza, id: nextId };
       let newState = [...state, newPizza];
       // consoleLogPizzas(newState);
@@ -55,6 +54,7 @@ function pizzaReducer(state = initialState.pizzas, action) {
 }
 
 // function consoleLogPizzas(logPizzas) {
+//   console.log(JSON.stringify(newState));
 //   console.log("Pizzas: " + logPizzas.length);
 //   logPizzas.map((pizza) => {
 //     console.log(

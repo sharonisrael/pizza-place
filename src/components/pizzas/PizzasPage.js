@@ -25,6 +25,10 @@ class PizzasPage extends React.Component {
     return result;
   };
 
+  isOrderPizzasDisabled = () => {
+    return this.props.pizzas.length === 0;
+  };
+
   render() {
     return (
       <div>
@@ -32,7 +36,6 @@ class PizzasPage extends React.Component {
         <hr />
         <div style={{ display: "flex", flexDirection: "row" }}>
           {allPizzas.map((pizza) => {
-            // console.log("Adding inside " + pizza.name);
             return (
               <div key={pizza.id}>
                 <PizzaCard
@@ -45,7 +48,12 @@ class PizzasPage extends React.Component {
           })}
         </div>
         <br />
-        <Button href="/cart" variant="success" style={{ margin: "10px" }}>
+        <Button
+          href="/cart"
+          variant="success"
+          style={{ margin: "10px" }}
+          disabled={this.isOrderPizzasDisabled()}
+        >
           Order pizza
         </Button>
         <span>Total {this.formatTotal()}$</span>
