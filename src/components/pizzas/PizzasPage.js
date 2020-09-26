@@ -5,9 +5,14 @@ import { connect } from "react-redux";
 import * as pizzaActions from "../../redux/actions/pizzaActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import { allPizzas } from "../../redux/pizzaTypes";
+import { getAllPizzas } from "../../api/pizzasApi";
+// import { allPizzas } from "../../redux/pizzaTypes";
 
 class PizzasPage extends React.Component {
+  state = {
+    catalog_pizzas: [],
+  };
+
   addPizza = (pizza) => {
     this.props.actions.addPizza(pizza);
   };
@@ -29,13 +34,21 @@ class PizzasPage extends React.Component {
     return this.props.pizzas.length === 0;
   };
 
+  componentDidMount() {
+    getAllPizzas().then((pizzas) => {
+      console.log(pizzas.length);
+      this.setState({ catalog_pizzas: pizzas });
+    });
+    // this.setState({ catalog_pizzas: allPizzas });
+  }
+
   render() {
     return (
       <div>
         <h1>Pizzas</h1>
         <hr />
         <div style={{ display: "flex", flexDirection: "row" }}>
-          {allPizzas.map((pizza) => {
+          {this.state.catalog_pizzas.map((pizza) => {
             return (
               <div key={pizza.id}>
                 <PizzaCard
