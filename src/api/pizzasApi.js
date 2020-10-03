@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3001";
+const baseUrl = "http://localhost:3001/pizzas";
 
 async function handleResponse(response) {
   if (response.ok) return response.json();
