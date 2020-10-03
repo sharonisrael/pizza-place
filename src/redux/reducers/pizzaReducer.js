@@ -19,9 +19,12 @@ function pizzaReducer(state = initialState.pizzas, action) {
           ) + 1;
       }
 
-      let newPizza = { ...action.pizza, id: nextId };
+      let newPizza = {
+        ...action.pizza,
+        id: nextId,
+        order_date: new Date().toJSON(),
+      };
       let newState = [...state, newPizza];
-      // consoleLogPizzas(newState);
       // return updated copy of state to the store. Whatever return from reducer becomes new state for this reducer
       return newState;
     }
@@ -33,18 +36,15 @@ function pizzaReducer(state = initialState.pizzas, action) {
       var pizzaIndex = newState.findIndex(
         (currentPizza) => currentPizza.name === action.pizza.name
       );
-      // console.log("pizzaIndex " + pizzaIndex);
       // remove starting from pizzaIndex 1 item
       if (pizzaIndex >= 0) {
         newState.splice(pizzaIndex, 1);
       }
-      // consoleLogPizzas(newState);
       // return updated copy of state to the store. Whatever return from reducer becomes new state for this reducer
       return newState;
     }
     case actionTypes.RESET_PIZZAS: {
       let newState = [];
-      // consoleLogPizzas(newState);
       // return updated copy of state to the store. Whatever return from reducer becomes new state for this reducer
       return newState;
     }
@@ -52,23 +52,5 @@ function pizzaReducer(state = initialState.pizzas, action) {
       return state;
   }
 }
-
-// function consoleLogPizzas(logPizzas) {
-//   console.log(JSON.stringify(newState));
-//   console.log("Pizzas: " + logPizzas.length);
-//   logPizzas.map((pizza) => {
-//     console.log(
-//       "Pizza: " +
-//         pizza.id +
-//         " " +
-//         pizza.name +
-//         " " +
-//         pizza.description +
-//         " " +
-//         pizza.price
-//     );
-//     return 0;
-//   });
-// }
 
 export default pizzaReducer;

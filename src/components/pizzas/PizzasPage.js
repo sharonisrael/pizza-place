@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import * as pizzaActions from "../../redux/actions/pizzaActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import { getAllPizzas } from "../../api/pizzasApi";
-// import { allPizzas } from "../../redux/pizzaTypes";
+// import { getAllPizzas } from "../../api/pizzasApi";
+import { allPizzas } from "../../redux/pizzaTypes";
 
 class PizzasPage extends React.Component {
   state = {
@@ -35,11 +35,31 @@ class PizzasPage extends React.Component {
   };
 
   componentDidMount() {
-    getAllPizzas().then((pizzas) => {
-      console.log(pizzas.length);
-      this.setState({ catalog_pizzas: pizzas });
-    });
-    // this.setState({ catalog_pizzas: allPizzas });
+    // Check if should reset in case too much time since last ordered pizza
+    let pizzas = [...this.props.pizzas];
+    // console.log(JSON.stringify(pizzas));
+    if (pizzas.length > 0) {
+      const last_ordered_pizza = pizzas.reduce((max, current) =>
+        new Date(max.order_date) > new Date(current.order_date) ? max : current
+      );
+      let nowDate = new Date();
+      // console.log(nowDate);
+      let lastOrderedDate = new Date(last_ordered_pizza.order_date);
+      // console.log(lastOrderedDate);
+      let diffTime = nowDate - lastOrderedDate;
+      const diffMinutes = Math.ceil(diffTime / (1000 * 60));
+      // console.log(diffMinutes);
+
+      // if passed more 10 minutes then I will reset because probably he went away and came back
+      if (diffMinutes > 10) {
+        this.props.actions.resetPizzas();
+      }
+    }
+
+    // getAllPizzas().then((pizzas) => {
+    //   this.setState({ catalog_pizzas: pizzas });
+    // });
+    this.setState({ catalog_pizzas: allPizzas });
   }
 
   render() {

@@ -6,6 +6,7 @@ export const allPizzas = [
     image: "/images/pizza_napolitana.jpg",
     description: "Pizza with tomatoe sauce and olives",
     price: 40,
+    order_date: new Date().toJSON,
   },
   {
     id: 101,
@@ -13,5 +14,6 @@ export const allPizzas = [
     image: "/images/pizza_vegetables.jpg",
     description: "Pizza with vegetables and special sauce",
     price: 50,
+    order_date: new Date().toJSON,
   },
 ];

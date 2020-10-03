@@ -1,9 +1,10 @@
 export const loadStateFromLocalStorage = () => {
   try {
-    const serializedState = localStorage.getItem("state");
+    const serializedState = localStorage.getItem("pizza_state");
     if (serializedState === null) {
       return undefined;
     }
+
     return JSON.parse(serializedState);
   } catch (err) {
     return undefined;
@@ -13,7 +14,7 @@ export const loadStateFromLocalStorage = () => {
 export const saveStateToLocalStorage = (state) => {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem("state", serializedState);
+    localStorage.setItem("pizza_state", serializedState);
   } catch {
     // ignore write errors
   }

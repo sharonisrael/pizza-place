@@ -30,9 +30,10 @@ function CartPage(props) {
     // courseApi.saveCourse(course).then(() => {
     //   props.history.push("/courses");
     // });
-    console.log("Issue order: " + JSON.stringify(order));
+    //console.log("Issue order: " + JSON.stringify(order));
     props.actions.resetPizzas();
-    props.history.push("/");
+    // Using "homepage" attribute
+    props.history.push("/" + process.env.PUBLIC_URL);
   }
 
   return (
