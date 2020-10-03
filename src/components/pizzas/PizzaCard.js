@@ -7,7 +7,7 @@ function PizzaCard(props) {
     <Card key={props.pizza.id} style={{ margin: "10px" }}>
       <Card.Img
         variant="top"
-        src={props.pizza.image}
+        src={process.env.PUBLIC_URL + props.pizza.image}
         style={{ height: "250px", width: "300px", padding: "10px" }}
       />
       <Card.Body>

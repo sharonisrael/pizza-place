@@ -10,7 +10,11 @@ function NavigationBar() {
       <Nav className="mr-auto">
         <Nav.Link href="/pizzas">Pizzas</Nav.Link>
         <Nav.Link href="/cart">
-          <img src="/images/online_cart_empty.png" height="50" alt="cart" />
+          <img
+            src={process.env.PUBLIC_URL + "/images/online_cart_empty.png"}
+            height="50"
+            alt="cart"
+          />
         </Nav.Link>
         <Nav.Link href="/contact">Contact Us</Nav.Link>
       </Nav>
