@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter, BrowserRouter } from "react-router-dom";
 import configureStore from "./redux/configureStore";
 import { Provider as ReductProvider } from "react-redux";
 
@@ -11,11 +11,11 @@ const store = configureStore();
 
 ReactDOM.render(
   <ReductProvider store={store}>
-    <Router>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </Router>
+    </HashRouter>
   </ReductProvider>,
 
   document.getElementById("root")

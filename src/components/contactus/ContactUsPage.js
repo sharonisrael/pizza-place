@@ -13,7 +13,7 @@ const ContactUsPage = () => (
     <Jumbotron>
       <h1>Pizza place</h1>
       <img
-        src="/images/pizza-place.jpg"
+        src={process.env.PUBLIC_URL + "/images/pizza-place.jpg"}
         alt="place"
         rounded="true"
         style={{ height: "250px" }}

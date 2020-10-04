@@ -82,7 +82,7 @@ class PizzasPage extends React.Component {
         </div>
         <br />
         <Button
-          href="/cart"
+          href={process.env.PUBLIC_URL + "/#/cart"}
           variant="success"
           style={{ margin: "10px" }}
           disabled={this.isOrderPizzasDisabled()}

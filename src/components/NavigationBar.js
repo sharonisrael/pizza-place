@@ -8,15 +8,17 @@ function NavigationBar() {
   return (
     <Navbar bg="primary" variant="dark">
       <Nav className="mr-auto">
-        <Nav.Link href="/pizzas">Pizzas</Nav.Link>
-        <Nav.Link href="/cart">
+        <Nav.Link href={process.env.PUBLIC_URL + "/#/pizzas"}>Pizzas</Nav.Link>
+        <Nav.Link href={process.env.PUBLIC_URL + "/#/cart"}>
           <img
             src={process.env.PUBLIC_URL + "/images/online_cart_empty.png"}
             height="50"
             alt="cart"
           />
         </Nav.Link>
-        <Nav.Link href="/contact">Contact Us</Nav.Link>
+        <Nav.Link href={process.env.PUBLIC_URL + "#/contact"}>
+          Contact Us
+        </Nav.Link>
       </Nav>
       <Button variant="outline-info">Sign in</Button>
     </Navbar>

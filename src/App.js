@@ -20,7 +20,6 @@ function App() {
       <NavigationBar />
       <Switch>
         <Route path="/" exact component={PizzasPage} />
-        <Route path="/pizza-place" exact component={PizzasPage} />
         <Route path="/pizzas" exact component={PizzasPage} />
         <Route path="/cart" component={CartPage} />
         <Route path="/contact" component={ContactUsPage} />
