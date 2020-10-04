@@ -33,7 +33,7 @@ function CartPage(props) {
     //console.log("Issue order: " + JSON.stringify(order));
     props.actions.resetPizzas();
     // Using "homepage" attribute
-    props.history.push("/" + process.env.PUBLIC_URL);
+    props.history.push("/");
   }
 
   return (
