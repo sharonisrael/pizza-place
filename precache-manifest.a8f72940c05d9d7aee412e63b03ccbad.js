@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7236e0cdb65b076e47e157bd9279e89a",
+    "revision": "f0612768f31170a22a370893e8f7cc2b",
     "url": "/pizza-place/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pizza-place/static/js/2.91ee2549.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "41af8dccf3cb65320243",
-    "url": "/pizza-place/static/js/main.acc8bce4.chunk.js"
+    "revision": "4259df4f66711d2ec2bf",
+    "url": "/pizza-place/static/js/main.b6ca16db.chunk.js"
   },
   {
     "revision": "a9f1ed3276d8d56b1719",
