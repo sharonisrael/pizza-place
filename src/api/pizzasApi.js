@@ -1,3 +1,5 @@
+import { allPizzas } from "../redux/pizzaTypes";
+
 const baseUrl = "http://localhost:3001/pizzas";
 
 async function handleResponse(response) {
@@ -19,8 +21,13 @@ function handleError(error) {
 }
 
 export function getAllPizzas() {
-  console.log("getAllPizzas api/all_pizzas");
   const allPizzasUrl = baseUrl + "/api/all_pizzas";
+  console.log(`getAllPizzas ${allPizzasUrl}`);
   //   return fetch(allPizzasUrl).then((response) => response.json());
-  return fetch(allPizzasUrl).then(handleResponse).catch(handleError);
+  return fetch(allPizzasUrl)
+    .then(handleResponse)
+    .catch(handleError)
+    .catch((error) => {
+      return allPizzas;
+    });
 }
