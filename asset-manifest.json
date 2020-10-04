@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/pizza-place/static/js/main.028ae4f9.chunk.js",
-    "main.js.map": "/pizza-place/static/js/main.028ae4f9.chunk.js.map",
+    "main.js": "/pizza-place/static/js/main.30470574.chunk.js",
+    "main.js.map": "/pizza-place/static/js/main.30470574.chunk.js.map",
     "runtime-main.js": "/pizza-place/static/js/runtime-main.e5e74804.js",
     "runtime-main.js.map": "/pizza-place/static/js/runtime-main.e5e74804.js.map",
     "static/css/2.8aa5a7f8.chunk.css": "/pizza-place/static/css/2.8aa5a7f8.chunk.css",
-    "static/js/2.fefb0a59.chunk.js": "/pizza-place/static/js/2.fefb0a59.chunk.js",
-    "static/js/2.fefb0a59.chunk.js.map": "/pizza-place/static/js/2.fefb0a59.chunk.js.map",
+    "static/js/2.203f8903.chunk.js": "/pizza-place/static/js/2.203f8903.chunk.js",
+    "static/js/2.203f8903.chunk.js.map": "/pizza-place/static/js/2.203f8903.chunk.js.map",
     "index.html": "/pizza-place/index.html",
-    "precache-manifest.020941725bd618586804c92da62657c0.js": "/pizza-place/precache-manifest.020941725bd618586804c92da62657c0.js",
+    "precache-manifest.01060b2ee1df92730cf7cce6ae31ac09.js": "/pizza-place/precache-manifest.01060b2ee1df92730cf7cce6ae31ac09.js",
     "service-worker.js": "/pizza-place/service-worker.js",
     "static/css/2.8aa5a7f8.chunk.css.map": "/pizza-place/static/css/2.8aa5a7f8.chunk.css.map",
-    "static/js/2.fefb0a59.chunk.js.LICENSE.txt": "/pizza-place/static/js/2.fefb0a59.chunk.js.LICENSE.txt"
+    "static/js/2.203f8903.chunk.js.LICENSE.txt": "/pizza-place/static/js/2.203f8903.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e5e74804.js",
     "static/css/2.8aa5a7f8.chunk.css",
-    "static/js/2.fefb0a59.chunk.js",
-    "static/js/main.028ae4f9.chunk.js"
+    "static/js/2.203f8903.chunk.js",
+    "static/js/main.30470574.chunk.js"
   ]
 }
